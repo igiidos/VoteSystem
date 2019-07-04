@@ -1,0 +1,134 @@
+{% extends 'mainapp/__base.html' %}
+{% load static %}
+
+{% block style %}
+    <style>
+        #myCanvas {
+            border:4px solid #444;
+            border-radius: 15px;
+            background-color: #fafafa;
+        }
+    </style>
+{% endblock %}
+
+{% block header_contents %}
+
+{% endblock %}
+
+
+{% block main_container %}
+    <div class="container" style="padding-top: 15vh;">
+        <div class="row">
+            <!-- Card -->
+            <div class="card card-cascade wider reverse mx-auto">
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                    {% if subject.image %}
+                        <img class="card-img-top" src="{{ subject.image.url }}" alt="Card image cap" width="100%">
+                        <a href="{{ subject.image.url }}" target="_blank">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    {% else %}
+                        <img class="card-img-top" src="{% static 'mainapp/images/sungwon_logo.png' %}" alt="Card image cap" width="100%">
+                        <a href="{% static 'mainapp/images/sungwon_logo.png' %}" target="_blank">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    {% endif %}
+
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+                    <h6 class="font-weight-bold text-success pb-4"><i class="far fa-hand-pointer"></i> 이미지 자세히보기</h6>
+                    <!-- Title -->
+                    <p class="card-title h5-responsive"><strong>{{ subject.subject }}</strong></p>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text pt-2 mb-0">{{ subject.stater }}</h6>
+                    <h6 class="text-black-50 pb-2 small">작성 : {{ subject.created_at }}</h6>
+                    <!-- Text -->
+                    <p class="card-text text-left">{{ subject.text | linebreaksbr }}</p>
+
+                    <hr>
+                    <!-- Form -->
+                    <!-- Material form register -->
+                    <div class="card">
+
+                        <h5 class="card-header info-color white-text text-center py-2">
+                            <strong>투 표</strong>
+                        </h5>
+
+                        <!--Card content-->
+                        <div class="card-body px-lg-5 pt-0">
+
+                            <!-- Form -->
+                            <form class="text-center" style="color: #757575;">
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="md-form">
+                                            {{ form.dong }}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="md-form">
+                                            {{ form.ho }}
+                                            <label for="id_ho">호수(숫자만)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="md-form mt-0">
+                                    {{ form.name }}
+                                    <label for="id_name">세대주명</label>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="md-form">
+                                    {{ form.tel1 }}
+                                    <label for="id_tel1">휴대폰번호(숫자만)</label>
+                                </div>
+
+                                <!-- Phone number -->
+                                <div class="form-check">
+                                    {{ form.voting }}
+                                    <label for="id_voting">찬성하시겠습니까?</label>
+                                    <p class="text-muted small mb-0">찬성하는 경우 <i class="fas fa-check"></i> (check)</p>
+                                    <p class="text-muted small">반대하는 경우 <i class="far fa-square"></i> (비우기)</p>
+                                </div>
+                                <div class="">
+                                    <canvas id="myCanvas"></canvas><br><br>
+    <input type="button" value="Reset" id='resetSign'>
+                                </div>
+                                <hr>
+                                <p class="text-danger">제출을 하시면 수정 하실 수 없습니다.</p>
+                                <!-- Sign up button -->
+                                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">제 출</button>
+
+
+                            </form>
+                            <!-- Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'mainapp/mdb_pro/js/sign.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.mdb-select').material_select();
+            $('#myCanvas').sign({
+                resetButton: $('#resetSign'),
+                lineWidth: 5,
+                height:300,
+                width:400
+            });
+        });
+    </script>
+{% endblock %}

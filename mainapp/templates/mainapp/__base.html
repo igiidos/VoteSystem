@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko" class="">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>수지성원아파트-전자투표</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'mainapp/mdb_pro/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'mainapp/mdb_pro/css/mdb.min.css' %}" rel="stylesheet">
+    <style>
+        .top-nav-collapse {
+            background-color: #6f7782 !important;
+        }
+        .navbar:not(.top-nav-collapse) {
+            background: #33343c !important;
+        }
+        @media (max-width: 768px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #6f7782 !important;
+            }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #6f7782!important;
+            }
+        }
+    </style>
+ <style>
+        h1 {
+            letter-spacing: 8px;
+        }
+        h5 {
+            letter-spacing: 3px;
+        }
+        .hr-light {
+            border-top: 3px solid #fff;
+            width: 80px;
+        }
+        footer.page-footer {
+            background-color: #6f7782;
+        }
+
+        @media (max-width: 450px) {
+            .btn-floating {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+    </style>
+
+    {% block style %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+
+<!--Main Navigation-->
+<header>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+            <a class="navbar-brand text-small" href="#"><strong>성원아파트-전자투표</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+{#                    <li class="nav-item active">#}
+{#                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Link</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="#">Profile</a>#}
+{#                    </li>#}
+                </ul>
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <button type="button" class="btn btn-outline-light-blue waves-effect m-0 btn-sm">Login</button>
+{#                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">#}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    {% block header_contents %}
+    {% endblock %}
+
+
+</header>
+<!--Main Navigation-->
+
+
+<!--Main Layout-->
+<main style="padding-bottom: 10rem;">
+{% block main_container %}
+{% endblock %}
+
+</main>
+<!--Main Layout-->
+
+
+<!--Footer-->
+<footer class="page-footer pt-4 mt-4  text-center text-md-left">
+
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-12 text-center py-0">
+                <p class="text-smaller">수지성원아파트 임시 전자투표 시스템</p>
+            </div>
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+
+
+    <!--Copyright-->
+    <div class="footer-copyright py-1 text-center">
+        <div class="container-fluid">
+            © 2019 Copyright: <a href="#"> 수지성원아파트 </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<!--  SCRIPTS  -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'mainapp/mdb_pro/js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'mainapp/mdb_pro/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'mainapp/mdb_pro/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'mainapp/mdb_pro/js/mdb.min.js' %}"></script>
+<script>
+    new WOW().init();
+
+</script>
+{% block script %}
+{% endblock %}
+</body>
+
+</html>
